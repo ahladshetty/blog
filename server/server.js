@@ -1,12 +1,15 @@
 import express from "express";
-import "dotenv/config";
 import sequelize from "./DB/db.js";
+import "dotenv/config";
 
-import Posts from "./models/Posts.js";
-import Contacts from "./models/Contacts.js";
+import adminRouter from "./routes/adminRoutes.js";
+import blogRouter from "./routes/blogRoutes.js";
 
 const app = express();
 const port = process.env.PORT;
+
+app.use(adminRouter);
+app.use(blogRouter);
 
 app.get("/", (req, res) => {
   res.send("GET request to the homepage");
