@@ -16,10 +16,6 @@ const Contacts = sequelize.define('Contacts', {
     type: DataTypes.STRING(30),
     allowNull: false,
   },
-  phno: {
-    type: DataTypes.STRING(12),
-    allowNull: false,
-  },
   msg: {
     type: DataTypes.STRING(100),
     allowNull: false,
