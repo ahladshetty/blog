@@ -4,7 +4,7 @@ import { allPosts, getPost, contactUs } from '../controllers/blogController.js'
 
 const router = express.Router();
 
-router.get('/', allPosts)
+router.get('/home', allPosts)
 router.get('/post/:sno', getPost)
 router.post('/contact', contactUs)
 

@@ -1,31 +1,32 @@
 import Posts from "../models/Posts.js";
 import Contacts from "../models/Contacts.js";
 
-// ROUTE 1: show all posts items using GET '/allPosts'
+// ROUTE 1: show all posts items using GET '/home'
 export const allPosts = async (req, res) => {
   try {
     const posts = await Posts.findAll();
-    // res.json(posts.map(post => ({title: post.title})));
-    res.json(posts);
+    res.json(posts.map(post => ({sno: post.sno, title: post.title})));
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-// ROUTE 2: show all posts items using GET '/getPost'
+// ROUTE 2: show posts details using GET '/post/:sno'
 export const getPost = async (req, res) => {
   try {
     const post = await Posts.findByPk(req.params.sno);
-    if (!post) res.status(404).json({ nope: "post not found" });
-    else res.json(post);
+    if (!post) 
+      res.status(404).json({ nope: "post not found" });
+    else 
+      res.json(post);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-// ROUTE 3: contact us using POST '/contactUs'
+// ROUTE 3: contact us using POST '/contact'
 export const contactUs = async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -34,9 +35,9 @@ export const contactUs = async (req, res) => {
       email,
       msg: message,
     });
-    res.status(201).json({ success: "message recieved" });
+    return res.status(201).json({ success: "message recieved" });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };

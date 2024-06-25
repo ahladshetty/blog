@@ -1,12 +1,13 @@
 import express from 'express';
 import { loginAdmin, adminDashboard, editPost, deletePost } from '../controllers/adminController.js'
+import userAuth from '../middleware/auth.js'
 
 const router = express.Router();
 
 router.post('/login', loginAdmin)
 router.get('/dashboard', adminDashboard)
-router.patch('/edit/:sno', editPost)
-router.delete('/delete/:sno', deletePost)
+router.patch('/edit/:sno', userAuth, editPost)
+router.delete('/delete/:sno', userAuth, deletePost)
 
 
 export default router
@@ -16,7 +17,7 @@ export default router
 // contact
 
 // login
-// dasboard
+// dashboard
 // delete/no
 // edit/no
 

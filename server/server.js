@@ -2,7 +2,7 @@ import express from "express";
 import sequelize from "./DB/db.js";
 import "dotenv/config";
 
-// import adminRouter from "./routes/adminRoutes.js";
+import adminRouter from "./routes/adminRoutes.js";
 import blogRouter from "./routes/blogRoutes.js";
 
 const app = express();
@@ -10,7 +10,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-// app.use(adminRouter);
+app.use(adminRouter);
 app.use(blogRouter);
 
 app.get("/", (req, res) => {
