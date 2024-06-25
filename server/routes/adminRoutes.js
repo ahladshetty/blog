@@ -4,10 +4,10 @@ import userAuth from '../middleware/auth.js'
 
 const router = express.Router();
 
-router.post('/login', loginAdmin)
-router.get('/dashboard', adminDashboard)
-router.patch('/edit/:sno', userAuth, editPost)
-router.delete('/delete/:sno', userAuth, deletePost)
+router.post('/admin/login', loginAdmin)
+router.get('/admin/dashboard', adminDashboard)
+router.patch('/admin/edit/:sno', userAuth, editPost)
+router.delete('/admin/delete/:sno', userAuth, deletePost)
 
 
 export default router

@@ -13,14 +13,6 @@ app.use(express.json());
 app.use(adminRouter);
 app.use(blogRouter);
 
-app.get("/", (req, res) => {
-  res.send("GET request to the homepage");
-});
-
-app.get("/test", (req, res) => {
-  res.send("<h1>test page</h1>");
-});
-
 async function connectToDatabase() {
   try {
     await sequelize.authenticate();

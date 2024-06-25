@@ -4,8 +4,8 @@ import { allPosts, getPost, contactUs } from '../controllers/blogController.js'
 
 const router = express.Router();
 
-router.get('/home', allPosts)
-router.get('/post/:sno', getPost)
-router.post('/contact', contactUs)
+router.get('/blog/home', allPosts)
+router.get('/blog/post/:sno', getPost)
+router.post('/blog/contact', contactUs)
 
 export default router
