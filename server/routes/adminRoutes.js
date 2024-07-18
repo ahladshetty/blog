@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post('/admin/login', loginAdmin)
 router.get('/admin/dashboard', adminDashboard)
-router.patch('/admin/edit/:sno', userAuth, editPost)
-router.delete('/admin/delete/:sno', userAuth, deletePost)
+router.patch('/admin/edit/:sno', editPost)
+router.delete('/admin/delete/:sno', deletePost)
 
 
 export default router

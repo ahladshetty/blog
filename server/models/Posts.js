@@ -17,7 +17,7 @@ const Posts = sequelize.define('Posts', {
     allowNull: false,
   },
   content: {
-    type: DataTypes.STRING(100),
+    type: DataTypes.STRING(1000),
     allowNull: false,
   },
   date: {

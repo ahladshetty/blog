@@ -5,7 +5,8 @@ import Contacts from "../models/Contacts.js";
 export const allPosts = async (req, res) => {
   try {
     const posts = await Posts.findAll();
-    res.json(posts.map(post => ({sno: post.sno, title: post.title})));
+    res.json(posts)
+    // res.json(posts.map(post => ({sno: post.sno, slug: post.slug, title: post.title, })));
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: "Internal Server Error" });

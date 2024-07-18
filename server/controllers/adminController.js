@@ -13,10 +13,11 @@ export const loginAdmin = async (req, res) => {
 
   const data = {
     user: {
-      admin: username,
-      pass: password,
+      username: username,
+      password: password,
     },
   };
+  
   const authtoken = jwt.sign(data, process.env.SECRET);
   res.json({ authtoken });
   } catch (error) {
@@ -24,7 +25,7 @@ export const loginAdmin = async (req, res) => {
   }
 };
 
-// ROUTE 2: dashboard using GET '/dashboard'
+// ROUTE 2: dashboard using GET '/admin/dashboard'
 export const adminDashboard = async (req, res) => {
   try {
     const posts = await Posts.findAll();
@@ -35,7 +36,7 @@ export const adminDashboard = async (req, res) => {
   }
 };
 
-// ROUTE 3: create or edit post using PATCH '/edit/:sno'
+// ROUTE 3: create or edit post using PATCH '/admin/edit/:sno'
 export const editPost = async (req, res) => {
   try {
     const { sno } = req.params;
@@ -59,7 +60,7 @@ export const editPost = async (req, res) => {
   }
 };
 
-// ROUTE 4: delete post using DELETE '/delete/:sno'
+// ROUTE 4: delete post using DELETE '/admin/delete/:sno'
 export const deletePost = async (req, res) => {
   try {
     const { sno } = req.params;
