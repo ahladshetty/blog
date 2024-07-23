@@ -27,7 +27,6 @@ const Contacts = sequelize.define('Contacts', {
 }, {
   indexes: [
     {
-      timestamps: false,
       unique: true,
       fields: ['sno']
     },

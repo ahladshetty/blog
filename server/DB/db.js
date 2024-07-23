@@ -3,7 +3,10 @@ import 'dotenv/config'
 
 const sequelize = new Sequelize(process.env.DBNAME, process.env.DBUSER, process.env.DBPASS, {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  define: {
+    timestamps: false
+  }
 });
 
 export default sequelize

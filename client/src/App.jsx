@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import EditBtn from "./components/EditBtn";
+import CreateBtn from "./components/CreatePost";
 
 function App() {
   return (
@@ -17,10 +18,14 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/post/:sno" element={<Post />} />
+        
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
+
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
+
+        <Route exact path="/create" element={<CreateBtn />} />
         <Route exact path="/edit/:sno" element={<EditBtn />} />
       </Routes >
     </Router >

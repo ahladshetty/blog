@@ -1,27 +1,25 @@
 /* eslint-disable react/prop-types */
 import axios from "axios";
 import { useState } from "react";
-import {useLocation, useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-const EditBtn = () => {
+const CreateBtn = () => {
 
-  let location = useLocation();
   let navigate = useNavigate();
   
   const token =  localStorage.getItem('token');
-  const { post } = location.state; // access state passed to route
-
+  
   const [editData, setEditData] = useState({
-    title: post.title,
-    slug: post.slug,
-    content: post.content,
-    img_url: post.img_url,
+    title: "",
+    slug: "",
+    content: "",
+    img_url: "",
   });
   
-  const handleEdit = async (e) => {
+  const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.patch(`/admin/edit/${post.sno}`, {
+      const response = await axios.post('/admin/create', {
         title: editData.title,
         slug: editData.slug,
         content: editData.content,
@@ -32,7 +30,7 @@ const EditBtn = () => {
         },
       });
       if (response.data.success) {
-        post==0?alert("Post created successfully!"):alert("Post updated successfully!")
+        alert("Post created successfully!");
         navigate('/dashboard');
       } else {
         alert("Failed to update post.");
@@ -49,8 +47,8 @@ const EditBtn = () => {
   return (
     <div className="min-h-screen p-6 bg-gradient-to-br from-gray-700 via-gray-400 to-gray-700 flex items-center justify-center">
       <div className="w-full max-w-lg bg-gray-800 p-10 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-white mb-8 text-center">Edit Post</h1>
-        <form onSubmit={handleEdit} className="space-y-6">
+        <h1 className="text-3xl font-bold text-white mb-8 text-center">Create Post</h1>
+        <form onSubmit={handleCreate} className="space-y-6">
           <div className="flex items-center space-x-4">
             <label htmlFor="title" className="block text-gray-300 font-semibold w-24">Title</label>
             <input type="text" id="title" name="title" value={editData.title} required onChange={handleChange} className="flex-1 p-4 border border-gray-600 rounded-lg bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" />
@@ -73,9 +71,7 @@ const EditBtn = () => {
     </div>
   );
   
-
-  
   
 };
 
-export default EditBtn;
+export default CreateBtn;

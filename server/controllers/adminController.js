@@ -36,31 +36,38 @@ export const adminDashboard = async (req, res) => {
   }
 };
 
-// ROUTE 3: create or edit post using PATCH '/admin/edit/:sno'
+// ROUTE 3: create post using POST '/admin/edit/:sno'
+export const createPost = async (req, res) => {
+  try {
+    const { title, slug, content, img_url } = req.body;
+    const post = await Posts.create({ title, slug, content, img_url });
+    return res.status(201).json({ success: "post created" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+// ROUTE 4: create or edit post using PATCH '/admin/edit/:sno'
 export const editPost = async (req, res) => {
   try {
     const { sno } = req.params;
     const { title, slug, content, img_url } = req.body;
 
-    if (sno == 0) { // create post
-      const post = await Posts.create({ title, slug, content, img_url });
-      return res.status(201).json({ success: "post created" });
-    } else {
-      const post = await Posts.update(
-        { title, slug, content, img_url },
-        { where: { sno } }
-      );
-      if (post == 0) return res.status(404).json({ error: "post not found" });
+    const post = await Posts.update(
+      { title, slug, content, img_url },
+      { where: { sno } }
+    );
+    if (post == 0) return res.status(404).json({ error: "post not found" });
 
-      return res.status(200).json({ success: "post updated" });
-    }
+    return res.status(200).json({ success: "post updated" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-// ROUTE 4: delete post using DELETE '/admin/delete/:sno'
+// ROUTE 5: delete post using DELETE '/admin/delete/:sno'
 export const deletePost = async (req, res) => {
   try {
     const { sno } = req.params;

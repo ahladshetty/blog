@@ -1,13 +1,15 @@
 import express from 'express';
-import { loginAdmin, adminDashboard, editPost, deletePost } from '../controllers/adminController.js'
+import { loginAdmin, adminDashboard, createPost, editPost, deletePost } from '../controllers/adminController.js'
 import userAuth from '../middleware/auth.js'
 
 const router = express.Router();
 
 router.post('/admin/login', loginAdmin)
 router.get('/admin/dashboard', adminDashboard)
-router.patch('/admin/edit/:sno', editPost)
-router.delete('/admin/delete/:sno', deletePost)
+
+router.post('/admin/create', userAuth, createPost)
+router.patch('/admin/edit/:sno', userAuth, editPost)
+router.delete('/admin/delete/:sno', userAuth, deletePost)
 
 
 export default router

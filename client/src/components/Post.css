@@ -1,0 +1,130 @@
+/* Post.css */
+
+/* Styles for blog content rendered from Markdown */
+
+/* Headings */
+.post-content h1 {
+    font-size: 2.25rem; /* Main heading size */
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #e1e4e8; /* Underline for headers */
+    padding-bottom: 0.3rem;
+}
+
+.post-content h2 {
+    font-size: 1.875rem; /* Subheading size */
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #e1e4e8; /* Underline for headers */
+    padding-bottom: 0.3rem;
+}
+
+.post-content h3 {
+    font-size: 1.5rem; /* Sub-subheading size */
+    margin-bottom: 0.5rem;
+}
+
+.post-content h4 {
+    font-size: 1.25rem; /* Smaller heading */
+    margin-bottom: 0.5rem;
+}
+
+.post-content h5 {
+    font-size: 1rem; /* Smaller heading */
+    margin-bottom: 0.5rem;
+}
+
+.post-content h6 {
+    font-size: 0.875rem; /* Smallest heading */
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+.post-content p {
+    font-size: 1rem; /* Paragraph text size */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Lists */
+.post-content ul,
+.post-content ol {
+    margin: 0 0 1rem 2rem;
+}
+
+.post-content li {
+    font-size: 1rem; /* List item text size */
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+.post-content a {
+    color: #0366d6; /* Link color */
+    text-decoration: none;
+    border-bottom: 1px solid #0366d6; /* Underline for links */
+}
+
+.post-content a:hover {
+    text-decoration: underline;
+}
+
+/* Blockquotes */
+.post-content blockquote {
+    border-left: 4px solid #d0d7de;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: #6a737d; /* Blockquote text color */
+}
+
+/* Code blocks */
+.post-content pre {
+    background: #f6f8fa;
+    border-radius: 3px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.post-content code {
+    background: #f6f8fa;
+    border-radius: 3px;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.95rem;
+}
+
+/* Images */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+}
+
+/* Horizontal rules */
+.post-content hr {
+    border: 0;
+    height: 1px;
+    background: #e1e4e8;
+    margin: 1rem 0;
+}
+
+.post-content .code-block {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.post-content .copy-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #0366d6;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.post-content .copy-button:hover {
+    background-color: #0356a3;
+}

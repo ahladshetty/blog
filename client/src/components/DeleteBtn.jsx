@@ -2,12 +2,17 @@
 import axios from "axios";
 
 const DeleteBtn = ({ post, onDelete }) => {
+  
+  const token = localStorage.getItem('token');
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this post?")) {
       try {
-        const response = await axios.delete(`/admin/delete/${post.sno}`);
+        const response = await axios.delete(`/admin/delete/${post.sno}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
+        });
         if (response.data.success) {
-            alert("Post deleted successfully!");
             onDelete();
         } else {
           console.error("Delete post failed");
@@ -19,7 +24,7 @@ const DeleteBtn = ({ post, onDelete }) => {
   };
 
   return (
-    <button type="button" onClick={handleDelete}>
+    <button type="button" onClick={handleDelete} className="px-2 py-1 text-white bg-red-600 hover:bg-red-700 rounded">
       Delete
     </button>
   );
