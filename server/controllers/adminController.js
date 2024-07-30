@@ -1,4 +1,5 @@
 import Posts from '../models/Posts.js';
+import Contacts from '../models/Contacts.js';
 import jwt from 'jsonwebtoken'
 import 'dotenv/config';
 
@@ -78,6 +79,19 @@ export const deletePost = async (req, res) => {
     if (post == 0) return res.status(404).json({ error: "post not found" });
 
     return res.status(200).json({ success: "post deleted" });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+
+
+// ROUTE 6: show all contacts using GET '/contactlist'
+export const contactList = async (req, res) => {
+  try {
+    const posts = await Contacts.findAll();
+    res.json(posts)
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: "Internal Server Error" });

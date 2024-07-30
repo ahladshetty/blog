@@ -48,6 +48,10 @@ const Dashboard = () => {
     navigate('/')
   }
 
+  const handleClick = (post) => {
+    navigate(`/post/${post.sno}`);
+  };
+
   return (
     <>
       <div className="bg-gradient-to-r from-gray-800 via-gray-300 to-gray-800 text-center space-y-14">
@@ -77,8 +81,7 @@ const Dashboard = () => {
         </thead>
         <tbody>
           {posts.map((post) => (
-            <tr key={post.sno} >
-              {/* onClick={() => handleClick(post)} */}
+            <tr key={post.sno} onClick={() => handleClick(post)} className="hover:cursor-pointer">
               <td className="p-2 text-left">{post.sno}</td>
               <td className="p-2 text-left">{post.slug}</td>
               <td className="p-2 text-left">{post.title}</td>
