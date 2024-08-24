@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+body {
+  background: linear-gradient(to bottom right, black, #0c0c0d, black);
+  font-family: 'Consolas', sans-serif;
+  }
+  

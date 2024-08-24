@@ -44,7 +44,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-gray-700 via-gray-300 to-gray-700 text-center space-y-14">
+      <div className="text-center space-y-14">
         <div className="relative bg-center py-48 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${home})` }}>
           <div className="absolute inset-0 bg-black opacity-30"></div>
           <div className="relative z-10">
@@ -55,10 +55,10 @@ const Home = () => {
 
         <div className="max-w-4xl mx-auto mt-6 space-y-8 px-4">
           {posts.map((post) => (
-            <div key={post.sno} onClick={() => handleClick(post)} className="border-b pb-4 cursor-pointer transition duration-300 ease-in-out hover:bg-gray-400">
-              <p className="text-3xl font-semibold mb-1">{post.title}</p>
-              <p className="text-2xl text-gray-700 mb-2" dangerouslySetInnerHTML={{ __html: marked(post.content.slice(0, 20) + '...') }}/>
-              <p className="text-xl text-gray-500">Posted on {`${post.date.slice(0, 10)}`}</p>
+            <div key={post.sno} onClick={() => handleClick(post)} className="border-b pb-4 cursor-pointer transition duration-300 ease-in-out hover:bg-[#0c0c0d]">
+              <p className="text-3xl text-[#ececec] mb-1">{post.title}</p>
+              <p className="text-2xl text-[#b6b6b9] mb-2" dangerouslySetInnerHTML={{ __html: marked(post.content.slice(0, 20) + '...') }}/>
+              <p className="text-xl text-[#0dbe92]">Posted on {`${post.date.slice(0, 10)}`}</p>
             </div>
           ))}
         </div>

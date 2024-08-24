@@ -1,40 +1,44 @@
-/* Post.css */
-
 /* Styles for blog content rendered from Markdown */
 
 /* Headings */
 .post-content h1 {
     font-size: 2.25rem; /* Main heading size */
     margin-bottom: 0.75rem;
-    border-bottom: 1px solid #e1e4e8; /* Underline for headers */
+    border-bottom: 1px solid #444; /* Darker underline for headers */
     padding-bottom: 0.3rem;
+    color: #ececec; /* Lighter text color for headings */
 }
 
 .post-content h2 {
     font-size: 1.875rem; /* Subheading size */
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid #e1e4e8; /* Underline for headers */
+    border-bottom: 1px solid #444; /* Darker underline for headers */
     padding-bottom: 0.3rem;
+    color: #ececec; /* Lighter text color for subheadings */
 }
 
 .post-content h3 {
     font-size: 1.5rem; /* Sub-subheading size */
     margin-bottom: 0.5rem;
+    color: #ececec; /* Lighter text color */
 }
 
 .post-content h4 {
     font-size: 1.25rem; /* Smaller heading */
     margin-bottom: 0.5rem;
+    color: #ececec; /* Lighter text color */
 }
 
 .post-content h5 {
     font-size: 1rem; /* Smaller heading */
     margin-bottom: 0.5rem;
+    color: #ececec; /* Lighter text color */
 }
 
 .post-content h6 {
     font-size: 0.875rem; /* Smallest heading */
     margin-bottom: 0.5rem;
+    color: #ececec; /* Lighter text color */
 }
 
 /* Paragraphs */
@@ -42,6 +46,7 @@
     font-size: 1rem; /* Paragraph text size */
     line-height: 1.6;
     margin-bottom: 1rem;
+    color: #ececec; /* Light text color */
 }
 
 /* Lists */
@@ -53,13 +58,14 @@
 .post-content li {
     font-size: 1rem; /* List item text size */
     margin-bottom: 0.5rem;
+    color: #ececec; /* Light text color */
 }
 
 /* Links */
 .post-content a {
-    color: #0366d6; /* Link color */
+    color: #58a6ff; /* Light blue link color */
     text-decoration: none;
-    border-bottom: 1px solid #0366d6; /* Underline for links */
+    border-bottom: 1px solid #58a6ff; /* Light blue underline for links */
 }
 
 .post-content a:hover {
@@ -68,27 +74,29 @@
 
 /* Blockquotes */
 .post-content blockquote {
-    border-left: 4px solid #d0d7de;
+    border-left: 4px solid #444; /* Darker border for blockquotes */
     padding-left: 1rem;
     margin: 1rem 0;
     font-style: italic;
-    color: #6a737d; /* Blockquote text color */
+    color: #9ba4ab; /* Lighter gray for blockquote text */
 }
 
 /* Code blocks */
 .post-content pre {
-    background: #f6f8fa;
+    background: #10141b; /* Darker background for code blocks */
     border-radius: 3px;
     padding: 1rem;
     overflow-x: auto;
     margin: 1rem 0;
+    color: #c9d1d9; /* Light text color in code blocks */
 }
 
 .post-content code {
-    background: #f6f8fa;
+    background: #0d1117; /* Darker background for inline code */
     border-radius: 3px;
     padding: 0.2rem 0.4rem;
     font-size: 0.95rem;
+    color: #ececec; /* Light text color for inline code */
 }
 
 /* Images */
@@ -103,10 +111,11 @@
 .post-content hr {
     border: 0;
     height: 1px;
-    background: #e1e4e8;
+    background: #444; /* Darker horizontal rule */
     margin: 1rem 0;
 }
 
+/* Code Block Copy Button */
 .post-content .code-block {
     position: relative;
     margin-bottom: 1rem;
@@ -116,7 +125,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #0366d6;
+    background-color: #58a6ff; /* Light blue background */
     color: white;
     border: none;
     border-radius: 3px;
@@ -126,5 +135,5 @@
 }
 
 .post-content .copy-button:hover {
-    background-color: #0356a3;
+    background-color: #2f80ed; /* Darker blue on hover */
 }

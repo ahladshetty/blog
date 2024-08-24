@@ -54,7 +54,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-gray-800 via-gray-300 to-gray-800 text-center space-y-14">
+      <div className="text-center space-y-14">
         <div className="relative bg-center py-48 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${home})` }}>
           <div className="absolute inset-0 bg-black opacity-30"></div>
           <div className="text-white relative z-10 space-y-10">
@@ -70,7 +70,7 @@ const Dashboard = () => {
             <button onClick={handleLogout} className="px-2 py-1 text-xl bg-red-600 hover:bg-red-700 rounded">Logout</button>
             </div>
   <div className="p-4 text-lg">
-      <table className="w-4/5 mx-36">
+      <table className="w-4/5 mx-36 text-[#ececec]">
         <thead>
           <tr >
             <th className="p-2 text-left">#</th>
@@ -81,10 +81,12 @@ const Dashboard = () => {
         </thead>
         <tbody>
           {posts.map((post) => (
-            <tr key={post.sno} onClick={() => handleClick(post)} className="hover:cursor-pointer">
+            <tr key={post.sno}>
               <td className="p-2 text-left">{post.sno}</td>
               <td className="p-2 text-left">{post.slug}</td>
+              <div className="hover:cursor-pointer" onClick={() => handleClick(post)} >
               <td className="p-2 text-left">{post.title}</td>
+              </div>
               <td className="p-2 text-left">{post.date.slice(0, 10)}</td>
               <td className="p-2">
                 <Link to={`/edit/${post.sno}`} state={{ post }}>
